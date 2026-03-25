@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tierra Capayán – Servicios Generales de Construcción</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --rojo:    #970201;
+      --rojo-dark: #6e0101;
+      --gris:    #7e7e7e;
+      --gris-claro: #f4f4f4;
+      --blanco:  #ffffff;
+      --negro:   #1a1a1a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--negro);
+      background: var(--blanco);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 3px solid var(--rojo);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--blanco) !important;
+      letter-spacing: 0.04em;
+    }
+    .navbar-brand span { color: var(--rojo); }
+    .nav-link {
+      color: #ccc !important;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      transition: color 0.25s;
+      padding: 0.5rem 1rem !important;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--rojo) !important; }
+    .navbar-toggler { border-color: var(--rojo); }
+    .navbar-toggler-icon { filter: invert(1); }
+        #TIERRA-CAPAYAN-SIN-FONDO{
+      height: 80px}
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(151,2,1,0.82) 0%, rgba(20,20,20,0.88) 60%),
+        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 90px;
+      background: var(--blanco);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--rojo);
+      color: #fff;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.35rem 1.1rem;
+      border-radius: 2px;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: var(--blanco);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--rojo);
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.78);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
+    }
+    .btn-primary-tc {
+      background: var(--rojo);
+      border: none;
+      color: #fff;
+      padding: 0.85rem 2.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary-tc:hover {
+      background: var(--rojo-dark);
+      transform: translateY(-2px);
+      color: #fff;
+    }
+    .btn-outline-tc {
+      border: 2px solid rgba(255,255,255,0.55);
+      color: #fff;
+      padding: 0.82rem 2.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      background: transparent;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-outline-tc:hover { border-color: #fff; color: #fff; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--gris);
+      padding: 2rem 0;
+    }
+    .stat-item {
+      text-align: center;
+      border-right: 1px solid #333;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--rojo);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gris-claro);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-tag {
+      display: inline-block;
+      width: 36px; height: 3px;
+      background: var(--rojo);
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .section-subtitle {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rojo);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--negro);
+    }
+    .section-title span { color: var(--rojo); }
+
+    /* ── NOSOTROS ── */
+    .about-section { padding: 100px 0; background: var(--blanco); }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -28px;
+      right: -24px;
+      background: var(--rojo);
+      color: #fff;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(151,2,1,0.4);
+    }
+    .about-badge .big { font-size: 2rem; font-weight: 900; line-height: 1; }
+    .about-badge .small { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .about-text { padding-left: 3rem; }
+    .about-text p { color: var(--gris); line-height: 1.8; font-size: 1.05rem; }
+    .about-list li {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #eee;
+      color: var(--negro);
+      font-weight: 500;
+    }
+    .about-list li i { color: var(--rojo); margin-right: 10px; }
+
+    /* ── SERVICIOS ── */
+    .services-section { padding: 100px 0; background: var(--gris-claro); }
+    .service-card {
+      background: var(--blanco);
+      border-radius: 4px;
+      overflow: hidden;
+      border: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+    .service-card .icon-wrap {
+      width: 64px; height: 64px;
+      background: var(--rojo);
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.7rem;
+      color: #fff;
+      transition: background 0.3s;
+    }
+    .service-card:hover .icon-wrap { background: var(--rojo-dark); }
+    .service-card .card-body { padding: 2rem; }
+    .service-card h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .service-card p { color: var(--gris); font-size: 0.95rem; line-height: 1.7; }
+    .service-card .card-footer {
+      background: transparent;
+      border-top: 1px solid #eee;
+      padding: 1rem 2rem;
+    }
+    .service-card .card-footer a {
+      color: var(--rojo);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .service-card .card-footer a i { transition: transform 0.2s; }
+    .service-card .card-footer a:hover i { transform: translateX(4px); }
+
+    /* ── POR QUÉ ELEGIRNOS ── */
+    .why-section {
+      padding: 100px 0;
+      background:
+        linear-gradient(135deg, rgba(151,2,1,0.92) 0%, rgba(80,0,0,0.97) 100%),
+        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=80') center/cover no-repeat;
+      color: #fff;
+    }
+    .why-section .section-subtitle { color: rgba(255,200,200,0.85); }
+    .why-section .section-title { color: #fff; }
+    .why-section .section-title span { color: rgba(255,255,255,0.55); }
+    .why-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 2rem;
+      height: 100%;
+      transition: background 0.3s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.14); }
+    .why-card i { font-size: 2.2rem; color: rgba(255,200,200,0.85); margin-bottom: 1rem; }
+    .why-card h5 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.6rem; }
+    .why-card p { color: rgba(255,255,255,0.7); font-size: 0.94rem; line-height: 1.7; margin: 0; }
+
+    /* ── PROYECTOS ── */
+    .projects-section { padding: 100px 0; background: var(--blanco); }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .project-card img {
+      width: 100%; height: 280px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .project-card:hover img { transform: scale(1.06); }
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      transition: background 0.3s;
+    }
+    .project-overlay .tag {
+      background: var(--rojo);
+      color: #fff;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.7rem;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      width: fit-content;
+    }
+    .project-overlay h6 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.15rem;
+      margin: 0;
+    }
+
+    /* ── ZONA ── */
+    .zone-section { padding: 100px 0; background: var(--gris-claro); }
+    .zone-map {
+      background: #ddd;
+      border-radius: 4px;
+      height: 340px;
+      overflow: hidden;
+      position: relative;
+    }
+    .zone-map iframe { width: 100%; height: 100%; border: none; }
+    .zone-info h4 { font-size: 1.8rem; margin-bottom: 1rem; }
+    .zone-info p { color: var(--gris); line-height: 1.8; }
+    .zone-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--rojo);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 0.8rem;
+    }
+
+    /* ── CONTACTO ── */
+    .contact-section { padding: 100px 0; background: var(--negro); }
+    .contact-section .section-title { color: #fff; }
+    .contact-info-item {
+      display: flex; gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .contact-info-item .ci-icon {
+      width: 50px; height: 50px; min-width: 50px;
+      background: rgba(151,2,1,0.2);
+      border: 1px solid rgba(151,2,1,0.4);
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      color: var(--rojo);
+    }
+    .contact-info-item .ci-text strong {
+      display: block; color: #fff; font-weight: 600; margin-bottom: 0.2rem;
+    }
+    .contact-info-item .ci-text span { color: var(--gris); font-size: 0.95rem; }
+    .contact-form .form-control, .contact-form .form-select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      border-radius: 3px;
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+    }
+    .contact-form .form-control::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-form .form-control:focus {
+      background: rgba(255,255,255,0.09);
+      border-color: var(--rojo);
+      box-shadow: 0 0 0 3px rgba(151,2,1,0.2);
+      color: #fff;
+    }
+    .contact-form label { color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d0d0d;
+      border-top: 3px solid var(--rojo);
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #fff;
+    }
+    .footer-brand span { color: var(--rojo); }
+    footer p { color: var(--gris); font-size: 0.9rem; line-height: 1.7; }
+    .footer-links a {
+      display: block;
+      color: var(--gris);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.25s;
+    }
+    .footer-links a:hover { color: var(--rojo); }
+    .footer-social a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      border: 1px solid #333;
+      border-radius: 3px;
+      color: var(--gris);
+      font-size: 1.1rem;
+      margin-right: 0.5rem;
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+      text-decoration: none;
+    }
+    .footer-social a:hover { border-color: var(--rojo); color: #fff; background: var(--rojo); }
+    .footer-bottom {
+      border-top: 1px solid #222;
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      color: #555;
+      font-size: 0.8rem;
+    }
+    #TIERRA-CAPAYAN-SIN-FONDO-PIE{
+      height: 60px}
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE TWEAKS ── */
+    @media (max-width: 992px) {
+      .about-text { padding-left: 0; margin-top: 4rem; }
+      .about-badge { right: 8px; }
+    }
+    @media (max-width: 768px) {
+      .stat-item { border-right: none; border-bottom: 1px solid #333; padding: 1rem 0; }
+      .stat-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ──────────────────── NAVBAR ──────────────────── -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <img src="https://i.ibb.co/r2R3Xnbt/Imagen1.png" id="TIERRA-CAPAYAN-SIN-FONDO" border="0">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+      <a href="presupuesto.html" class="btn btn-primary-tc ms-3 d-none d-lg-inline-block">Pedir Presupuesto</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ──────────────────── HERO ──────────────────── -->
+<section class="hero" id="inicio">
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row">
+      <div class="col-lg-8 col-xl-7">
+        <span class="hero-eyebrow">Jachal · San Juan · Argentina</span>
+        <h1>Construimos el <em>futuro</em> de tu región</h1>
+        <p>Servicios generales de construcción con compromiso, experiencia y los más altos estándares de calidad en el departamento de Jachal y toda la provincia de San Juan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── STATS BAR ──────────────────── -->
+<div class="stats-bar" id="stats">
+  <div class="container">
+    <div class="row gy-3">
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">+50</span>
+        <span class="stat-label">Proyectos Realizados</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">+9</span>
+        <span class="stat-label">Años de Experiencia</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Obras completadas con exito</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">24/7</span>
+        <span class="stat-label">Soporte y Atención</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────── NOSOTROS ──────────────────── -->
+<section class="about-section" id="nosotros">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-5 fade-up">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?w=800&q=80" alt="Obra Tierra Capayán"/>
+          <div class="about-badge">
+            <span class="big">9+</span>
+            <span class="small">Años de<br>Trayectoria</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 fade-up about-text">
+        <p class="section-subtitle"><span class="section-tag"></span>Quiénes Somos</p>
+        <h2 class="section-title mb-4">Una empresa <span>sanjuanina</span> con raíces en Jachal</h2>
+        <p>Tierra Capayán nació en el corazón del departamento de Jachal con el firme propósito de brindar soluciones integrales en construcción a vecinos, empresas e instituciones de la región. Nos especializamos en obras civiles, refacciones, instalaciones y mantenimiento, garantizando resultados duraderos y seguros.</p>
+        <p>Nuestro equipo de profesionales conoce el territorio, el clima y las necesidades propias de la zona, lo que nos permite ofrecer soluciones adaptadas a cada proyecto con eficiencia y responsabilidad.</p>
+        <ul class="list-unstyled about-list mt-4">
+          <li><i class="bi bi-check-circle-fill"></i> Personal calificado y en continua capacitación</li>
+          <li><i class="bi bi-check-circle-fill"></i> Materiales de primera calidad con proveedores locales</li>
+          <li><i class="bi bi-check-circle-fill"></i> Cumplimiento de plazos y presupuestos acordados</li>
+          <li><i class="bi bi-check-circle-fill"></i> Registro y habilitación municipal vigente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── SERVICIOS ──────────────────── -->
+<section class="services-section" id="servicios">
+  <div class="container">
+    <div class="row mb-5 fade-up">
+      <div class="col-lg-6">
+        <p class="section-subtitle"><span class="section-tag"></span>Lo Que Hacemos</p>
+        <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+      </div>
+      <div class="col-lg-6 d-flex align-items-end">
+        <p class="text-muted mb-0">Ofrecemos soluciones completas en construcción, desde la planificación hasta la entrega final de obra, con atención personalizada en cada etapa.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <!-- Servicio 1 -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="card service-card">
+          <div class="card-body">
+            <div class="icon-wrap"><i class="bi bi-house-add"></i></div>
+            <h5>Construcción de Viviendas</h5>
+            <p>Edificación de viviendas familiares desde cero, con diseño adaptado al clima y relieve de Jachal, materiales certificados y mano de obra especializada.</p>
+          </div>
+          <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
+        </div>
+      </div>
+      <!-- Servicio 2 -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="card service-card">
+          <div class="card-body">
+            <div class="icon-wrap"><i class="bi bi-tools"></i></div>
+            <h5>Refacciones y Ampliaciones</h5>
+            <p>Renovación y expansión de espacios existentes: aberturas, revoques, impermeabilizaciones, pisos, cielorrasos y más, con acabados de alta calidad.</p>
+          </div>
+          <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
+        </div>
+      </div>
+      <!-- Servicio 3 -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="card service-card">
+          <div class="card-body">
+            <div class="icon-wrap"><i class="bi bi-lightning-charge"></i></div>
+            <h5>Instalaciones Eléctricas</h5>
+            <p>Tendido, mantenimiento y certificación de instalaciones eléctricas domiciliarias e industriales, cumpliendo con las normativas vigentes de seguridad.</p>
+          </div>
+          <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
+        </div>
+      </div>
+      <!-- Servicio 4 -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="card service-card">
+          <div class="card-body">
+            <div class="icon-wrap"><i class="bi bi-droplet-half"></i></div>
+            <h5>Instalaciones Sanitarias</h5>
+            <p>Diseño e instalación de sistemas de agua potable, cloacas y desagüe pluvial para viviendas, comercios y establecimientos industriales.</p>
+          </div>
+          <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
+        </div>
+      </div>
+      <!-- Servicio 5 -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="card service-card">
+          <div class="card-body">
+            <div class="icon-wrap"><i class="bi bi-building"></i></div>
+            <h5>Obras Comerciales e Industriales</h5>
+            <p>Construcción y adecuación de locales, galpones, plantas industriales y espacios de trabajo, con foco en funcionalidad, seguridad y estética.</p>
+          </div>
+          <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
+        </div>
+      </div>
+      <!-- Servicio 6 -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="card service-card">
+          <div class="card-body">
+            <div class="icon-wrap"><i class="bi bi-cone-striped"></i></div>
+            <h5>Mantenimiento Preventivo</h5>
+            <p>Planes de mantenimiento periódico para conservar el estado óptimo de sus instalaciones, reduciendo costos a largo plazo y prolongando la vida útil.</p>
+          </div>
+          <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── POR QUÉ ELEGIRNOS ──────────────────── -->
+<section class="why-section">
+  <div class="container">
+    <div class="row mb-5 fade-up">
+      <div class="col-lg-6">
+        <p class="section-subtitle"><span class="section-tag"></span>Nuestra Diferencia</p>
+        <h2 class="section-title">¿Por qué elegir <span>Tierra Capayán?</span></h2>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 fade-up">
+        <div class="why-card">
+          <i class="bi bi-geo-alt"></i>
+          <h5>Conocimiento Local</h5>
+          <p>Entendemos el suelo, el clima y las normativas de Jachal como ninguna empresa foránea puede hacerlo.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fade-up">
+        <div class="why-card">
+          <i class="bi bi-shield-check"></i>
+          <h5>Calidad Garantizada</h5>
+          <p>Cada obra se entrega con garantía escrita y acompañamiento post-entrega, porque su tranquilidad nos importa.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fade-up">
+        <div class="why-card">
+          <i class="bi bi-cash-stack"></i>
+          <h5>Precios Transparentes</h5>
+          <p>Presupuestos detallados sin sorpresas. Trabajamos con claridad total desde el primer día.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 fade-up">
+        <div class="why-card">
+          <i class="bi bi-people"></i>
+          <h5>Equipo Comprometido</h5>
+          <p>Profesionales y técnicos apasionados por la construcción, con vocación de servicio hacia la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── ZONA DE COBERTURA ──────────────────── -->
+<section class="zone-section" id="zona">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6 fade-up">
+        <div class="zone-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1449.0483577599055!2d-68.74674187085347!3d-30.25312096864253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x968367d13971ec81%3A0x1c7bfa8564779d74!2sEmpresa%20Constructora%20Tierra%20Capayan!5e0!3m2!1ses-419!2sar!4v1773875695110!5m2!1ses-419!2sar" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-up zone-info ps-lg-5">
+        <p class="section-subtitle"><span class="section-tag"></span>Dónde Operamos</p>
+        <h2 class="section-title mb-3">Radicados en <span>Jachal</span>, presentes en toda la provincia</h2>
+        <p>Nuestra base de operaciones está en el departamento de Jachal, San Juan. Desde allí brindamos servicios a toda la región del Valle del Jáchal, incluyendo localidades como Niquivil, La Ciénaga, Mogna y zonas aledañas.</p>
+        <p>Para proyectos de mayor envergadura también nos desplazamos a toda la provincia de San Juan, manteniendo siempre la calidad y el compromiso que nos caracteriza.</p>
+        <span class="zone-badge"><i class="bi bi-geo-alt-fill"></i> Jachal, San Juan – Argentina</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── FOOTER ──────────────────── -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <img src="https://i.ibb.co/r2R3Xnbt/Imagen1.png" id="TIERRA-CAPAYAN-SIN-FONDO-PIE" border="0">
+        <p>Empresa de servicios generales especializada en construcción. Comprometida con el desarrollo de Jachal y la provincia de San Juan desde sus cimientos.</p>
+        <div class="footer-social mt-3">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <h6 class="text-white mb-3" style="font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;">Navegación</h6>
+        <div class="footer-links">
+          <a href="#inicio">Inicio</a>
+          <a href="proyectos.html">Proyectos</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="presupuesto.html">Pedir Presupuesto</a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="text-white mb-3" style="font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;">Servicios</h6>
+        <div class="footer-links">
+          <a href="#servicios">Viviendas</a>
+          <a href="#servicios">Refacciones</a>
+          <a href="#servicios">Eléctricas</a>
+          <a href="#servicios">Sanitarias</a>
+          <a href="#servicios">Industriales</a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="text-white mb-3" style="font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;">Contacto</h6>
+        <p class="mb-1"><i class="bi bi-geo-alt text-danger me-2"></i>Jachal, San Juan, Argentina</p>
+        <p class="mb-1"><i class="bi bi-telephone text-danger me-2"></i>+54 264 672-7983</p>
+        <p class="mb-0"><i class="bi bi-envelope text-danger me-2"></i>info@tierracapayan.com.ar</p>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span>© 2025 Tierra Capayán · Todos los derechos reservados.</span>
+      <span>Jachal · San Juan · Argentina</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Scroll animation -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Smooth scroll nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // close mobile menu
+        const menu = document.getElementById('navMenu');
+        if (menu.classList.contains('show')) {
+          bootstrap.Collapse.getInstance(menu)?.hide();
+        }
+      }
+    });
+  });
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>

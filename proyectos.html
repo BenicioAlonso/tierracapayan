@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyectos y Certificaciones – Tierra Capayán</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --rojo:       #970201;
+      --rojo-dark:  #6e0101;
+      --gris:       #7e7e7e;
+      --gris-claro: #f4f4f4;
+      --negro:      #1a1a1a;
+      --blanco:     #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--blanco);
+      color: var(--negro);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(10,10,10,0.97);
+      border-bottom: 3px solid var(--rojo);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+    }
+    .navbar-brand img {
+      height: 52px;
+      width: auto;
+      transition: filter 0.3s;
+    }
+    .navbar-brand:hover img {
+      filter: brightness(1.1) drop-shadow(0 0 6px rgba(151,2,1,0.7));
+    }
+    .nav-link {
+      color: #ccc !important;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      transition: color 0.25s;
+      padding: 0.5rem 1rem !important;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--rojo) !important; }
+    .navbar-toggler { border-color: var(--rojo); }
+    .navbar-toggler-icon { filter: invert(1); }
+    .btn-primary-tc {
+      background: var(--rojo);
+      border: none;
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn-primary-tc:hover { background: var(--rojo-dark); color: #fff; }
+    #TIERRA-CAPAYAN-SIN-FONDO { height: 80px; }
+    .nav-link {
+      color: #ccc !important;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      transition: color 0.25s;
+      padding: 0.5rem 1rem !important;
+    }
+
+    /* ── HERO ── */
+    .hero-proyectos {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(150deg, rgba(151,2,1,0.88) 0%, rgba(10,10,10,0.96) 60%),
+        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&q=80') center/cover no-repeat;
+      padding: 80px 0 60px;
+    }
+    .hero-proyectos::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 380px; height: 380px;
+      border: 55px solid rgba(151,2,1,0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-proyectos::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 70px;
+      background: var(--blanco);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,200,200,0.8);
+      margin-bottom: 1.2rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 36px; height: 2px;
+      background: var(--rojo);
+    }
+    .hero-proyectos h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+    .hero-proyectos h1 em { font-style: normal; color: var(--rojo); }
+    .hero-proyectos p.lead {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 560px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--gris);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 2rem 0;
+    }
+    .stat-item { text-align: center; border-right: 1px solid rgba(0,0,0,0.1); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: var(--rojo);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--gris);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION HELPERS ── */
+    .section-tag {
+      display: inline-block;
+      width: 32px; height: 3px;
+      background: var(--rojo);
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .section-subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rojo);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      color: var(--negro);
+      line-height: 1.15;
+    }
+    .section-title span { color: var(--rojo); }
+
+    /* ── MAIN AREA ── */
+    .page-body {
+      padding: 70px 0 90px;
+      background: var(--blanco);
+      position: relative;
+    }
+    .page-body::before { display: none; }
+
+    /* ── FILTER TABS ── */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      background: rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.12);
+      color: rgba(0,0,0,0.55);
+      padding: 0.45rem 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-family: 'Barlow', sans-serif;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--rojo);
+      border-color: var(--rojo);
+      color: #fff;
+    }
+
+    /* ── PROJECT CARDS ── */
+    .project-card {
+      background: var(--blanco);
+      border: 1px solid rgba(0,0,0,0.09);
+      border-radius: 5px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      height: 100%;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+      border-color: rgba(151,2,1,0.4);
+    }
+    .project-card .card-img {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+    .project-card .card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .project-card:hover .card-img img { transform: scale(1.06); }
+    .project-card .card-img .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.8) 0%, transparent 55%);
+    }
+    .project-card .card-img .category-tag {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--rojo);
+      color: #fff;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .project-card .card-img .year-tag {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(0,0,0,0.6);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      padding: 0.22rem 0.6rem;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .project-card .card-body-inner {
+      padding: 1.4rem;
+    }
+    .project-card h5 {
+      font-size: 1.05rem;
+      color: var(--negro);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .project-card p {
+      font-size: 0.85rem;
+      color: var(--gris);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .project-card .meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+    .project-card .meta span {
+      font-size: 0.75rem;
+      color: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .project-card .meta i { color: var(--rojo); }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--rojo), rgba(151,2,1,0.1));
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -2.45rem;
+      top: 4px;
+      width: 14px; height: 14px;
+      background: var(--rojo);
+      border-radius: 50%;
+      border: 2px solid var(--gris-claro);
+      box-shadow: 0 0 0 3px rgba(151,2,1,0.3);
+    }
+    .timeline-year {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rojo);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--negro);
+      margin-bottom: 0.3rem;
+    }
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    /* ── CLIENTS SECTION ── */
+    .clients-section {
+      background:
+        linear-gradient(135deg, rgba(151,2,1,0.92) 0%, rgba(80,0,0,0.97) 100%),
+        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=80') center/cover no-repeat;
+      padding: 70px 0;
+      border-top: none;
+      border-bottom: none;
+    }
+    .clients-section .section-subtitle { color: rgba(255,200,200,0.85); }
+    .clients-section .section-title { color: #fff; }
+    .clients-section .section-title span { color: rgba(255,255,255,0.55); }
+    .client-logo-wrap {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      padding: 1.4rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .client-logo-wrap:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .client-logo-wrap span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .cert-section { padding: 70px 0; background: var(--gris-claro); }
+    .cert-card {
+      background: var(--blanco);
+      border: 1px solid rgba(0,0,0,0.09);
+      border-radius: 5px;
+      padding: 2rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cert-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+    }
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--rojo);
+    }
+    .cert-badge {
+      width: 60px; height: 60px;
+      background: rgba(151,2,1,0.15);
+      border: 1px solid rgba(151,2,1,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      color: var(--rojo);
+      margin-bottom: 1.2rem;
+    }
+    .cert-card h5 {
+      font-size: 1.1rem;
+      color: var(--negro);
+      margin-bottom: 0.5rem;
+    }
+    .cert-card p {
+      font-size: 0.88rem;
+      color: var(--gris);
+      line-height: 1.65;
+    }
+    .cert-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+    .cert-detail .cd-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+    }
+    .cert-detail .cd-row .label { color: var(--gris); }
+    .cert-detail .cd-row .val { color: var(--negro); font-weight: 600; }
+
+    /* ISO big card */
+    .iso-highlight {
+      background: linear-gradient(135deg, rgba(151,2,1,0.18) 0%, rgba(151,2,1,0.05) 100%);
+      border: 1px solid rgba(151,2,1,0.35);
+      border-radius: 5px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .iso-highlight::before {
+      content: 'ISO';
+      position: absolute;
+      right: -10px; top: -20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      font-weight: 900;
+      color: rgba(151,2,1,0.07);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .iso-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--rojo);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .iso-sub {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,200,200,0.7);
+      margin-bottom: 1.2rem;
+    }
+    .iso-highlight h4 { font-size: 1.5rem; color: var(--negro); margin-bottom: 0.8rem; }
+    .iso-highlight p { color: var(--negro); font-size: 0.95rem; line-height: 1.7; }
+    .iso-data-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+    .iso-data-item {
+      background: rgba(151,2,1,0.08);
+      border-radius: 3px;
+      padding: 0.8rem 1rem;
+    }
+    .iso-data-item .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 0.3rem;
+    }
+    .iso-data-item .val {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--negro);
+    }
+    .iso-data-item .val.red { color: var(--rojo); }
+
+    /* ── QR SECTION ── */
+    .qr-section {
+      background: var(--blanco);
+      padding: 60px 0;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+    .qr-box {
+      background: var(--gris-claro);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 5px;
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .qr-box img {
+      width: 150px;
+      height: 150px;
+      border-radius: 4px;
+      border: 3px solid rgba(151,2,1,0.4);
+    }
+    .qr-box h4 { font-size: 1.4rem; color: var(--negro); margin-bottom: 0.6rem; }
+    .qr-box p { color: var(--negro); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+    .qr-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--rojo);
+      color: #fff;
+      padding: 0.65rem 1.6rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 0.3s;
+    }
+    .qr-link:hover { background: var(--rojo-dark); color: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d0d0d;
+      border-top: 3px solid var(--rojo);
+      padding: 3rem 0 1.5rem;
+    }
+    footer p { color: var(--gris); font-size: 0.9rem; line-height: 1.7; }
+    .footer-links a {
+      display: block;
+      color: var(--gris);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.25s;
+    }
+    .footer-links a:hover { color: var(--rojo); }
+    .footer-social a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      border: 1px solid #333;
+      border-radius: 3px;
+      color: var(--gris);
+      font-size: 1.1rem;
+      margin-right: 0.5rem;
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+      text-decoration: none;
+    }
+    .footer-social a:hover { border-color: var(--rojo); color: #fff; background: var(--rojo); }
+    .footer-bottom {
+      border-top: 1px solid #222;
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      color: #555;
+      font-size: 0.8rem;
+    }
+    #TIERRA-CAPAYAN-SIN-FONDO-PIE { height: 60px; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.animate { opacity: 0; transform: translateY(28px); }
+    .fade-up.animate.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .stat-item { border-right: none; border-bottom: 1px solid #2a2a2a; padding: 1rem 0; }
+      .stat-item:last-child { border-bottom: none; }
+      .iso-data-grid { grid-template-columns: 1fr; }
+      .qr-box { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ──────────────────── NAVBAR ──────────────────── -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a href="tierra_capayan1.html">
+      <img src="https://i.ibb.co/r2R3Xnbt/Imagen1.png" id="TIERRA-CAPAYAN-SIN-FONDO" border="0">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="tierra_capayan1.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+      <a href="presupuesto.html" class="btn btn-primary-tc ms-3 d-none d-lg-inline-block">Pedir Presupuesto</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ──────────────────── HERO ──────────────────── -->
+<section class="hero-proyectos">
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="hero-eyebrow">Nuestro trabajo</div>
+        <h1>Proyectos y <em>Trayectoria</em></h1>
+        <p class="lead">Desde 2016 construimos el futuro de Jachal y toda la provincia de San Juan. Obras civiles, movimientos de suelo, estructuras metálicas y servicios industriales para los clientes más exigentes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── STATS ──────────────────── -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="row gy-3">
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">2016</span>
+        <span class="stat-label">Inicio de actividades</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">+50</span>
+        <span class="stat-label">Proyectos ejecutados</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">+12</span>
+        <span class="stat-label">Clientes activos</span>
+      </div>
+      <div class="col-6 col-md-3 stat-item">
+        <span class="stat-num">ISO</span>
+        <span class="stat-label">9001:2015 Certificado</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ──────────────────── PROYECTOS GRID ──────────────────── -->
+<section class="page-body" id="proyectos">
+  <div class="container position-relative" style="z-index:2;">
+
+    <div class="row mb-4 fade-up">
+      <div class="col-12">
+        <p class="section-subtitle"><span class="section-tag"></span>Obras ejecutadas</p>
+        <h2 class="section-title mb-3">Nuestros <span>Proyectos</span></h2>
+      </div>
+    </div>
+
+    <!-- FILTROS -->
+    <div class="filter-tabs fade-up">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="civil">Construcción Civil</button>
+      <button class="filter-btn" data-filter="metalurgica">Metalúrgica</button>
+      <button class="filter-btn" data-filter="suelos">Movimiento de Suelos</button>
+      <button class="filter-btn" data-filter="servicios">Servicios Generales</button>
+      <button class="filter-btn" data-filter="mineria">Minería</button>
+    </div>
+
+    <!-- CARDS -->
+    <div class="row g-4" id="projectsGrid">
+
+      <!-- 1 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="civil">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?w=700&q=80" alt="Viviendas"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Civil</span>
+            <span class="year-tag">2018–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Proyectos y construcción de viviendas</h5>
+            <p>Proyecto y ejecución de viviendas unifamiliares y locales comerciales en el departamento de Jachal, con materiales de primera calidad y mano de obra local.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Jachal, San Juan</span>
+              <span><i class="bi bi-building"></i> Área Civil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="civil">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=700&q=80" alt="Pisos hormigón"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Civil</span>
+            <span class="year-tag">2017–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Pisos de hormigón armado y cordón cuneta</h5>
+            <p>Construcción de pisos industriales y residenciales de hormigón armado. Cordón cuneta para vías públicas y privadas en zonas urbanas y rurales de San Juan.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> San Juan</span>
+              <span><i class="bi bi-building"></i> Área Civil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="civil">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=700&q=80" alt="Redes de agua"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Civil</span>
+            <span class="year-tag">2019–2023</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Redes de agua, canales de riego y pasantes</h5>
+            <p>Construcción y mantenimiento de redes de agua potable y canales de riego para establecimientos agroindustriales y municipales en el norte sanjuanino.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Norte San Juan</span>
+              <span><i class="bi bi-droplet-fill"></i> Hidráulica</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="civil mineria">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1622665084665-9d9042e18b96?w=700&q=80" alt="Monitoreo taludes"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Civil / Minería</span>
+            <span class="year-tag">2020–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Instalación de sistemas de monitoreo de taludes</h5>
+            <p>Instalación de puntos fijos, pilares de monitoreo, inclinómetros, freatímetros, piezómetros y estaciones sismográficas para proyectos mineros de primer nivel.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Provincia San Juan</span>
+              <span><i class="bi bi-activity"></i> Minería</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="civil">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1603574670812-d24560880210?w=700&q=80" alt="Invernaderos"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Civil</span>
+            <span class="year-tag">2018–2022</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Automatización de riego e invernaderos</h5>
+            <p>Montaje de invernaderos, instalación de sistemas automáticos de riego, montaje de domos y ejecución de cercos perimetrales para establecimientos agropecuarios.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Jachal y zona</span>
+              <span><i class="bi bi-tree-fill"></i> Agroindustria</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="metalurgica">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="Galpones"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Metalúrgica</span>
+            <span class="year-tag">2017–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Galpones, tinglados e invernaderos metálicos</h5>
+            <p>Proyecto, fabricación y montaje de galpones industriales, tinglados y estructuras metálicas para invernaderos. Trabajos realizados para clientes públicos y privados.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> San Juan</span>
+              <span><i class="bi bi-tools"></i> Metalmecánica</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="metalurgica">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80" alt="Portones y torres"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Metalúrgica</span>
+            <span class="year-tag">2019–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Portones, torres y estructuras especiales</h5>
+            <p>Fabricación de portones, torres de comunicación e iluminación. Fabricación de carros, acoplados y carretones de hasta 10 toneladas. Reparaciones y mantenimiento industrial.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> San Juan</span>
+              <span><i class="bi bi-wrench"></i> Fabricación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="suelos mineria">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1627847812580-9d2e4d8bfb25?w=700&q=80" alt="Movimiento suelos"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Suelos</span>
+            <span class="year-tag">2016–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Movimiento, perfilamiento y compactación de suelos</h5>
+            <p>Desmonte, movimiento de grandes volúmenes de suelo, perfilamiento, compactación y construcción de reservorios para proyectos mineros, viales y agroindustriales.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Provincia SJ</span>
+              <span><i class="bi bi-truck"></i> Maquinaria pesada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="suelos">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?w=700&q=80" alt="Caminos"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Suelos / Vial</span>
+            <span class="year-tag">2017–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Construcción y mantenimiento de caminos</h5>
+            <p>Trazado, construcción y mantenimiento de caminos rurales y de acceso a obras mineras. Montaje de gaviones, colchonetas y bolsas Trap-Bag. Anclaje de geomembrana.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Norte San Juan</span>
+              <span><i class="bi bi-sign-intersection"></i> Vial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="servicios">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=700&q=80" alt="Mantenimiento"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Servicios</span>
+            <span class="year-tag">2016–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Mantenimiento industrial y provisión de personal</h5>
+            <p>Servicio de mantenimiento industrial preventivo y correctivo. Provisión de personal temporario calificado para obras industriales. Transporte de cargas generales.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> San Juan</span>
+              <span><i class="bi bi-gear-fill"></i> Industrial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="servicios">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=700&q=80" alt="Extracción áridos"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Servicios</span>
+            <span class="year-tag">2018–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Extracción y clasificación de áridos</h5>
+            <p>Extracción y clasificación de áridos con ripiera propia. Venta de arena, grava y material de relleno. Provisión de insumos y materiales de construcción en general.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Jachal</span>
+              <span><i class="bi bi-box-seam"></i> Materiales</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="col-md-6 col-lg-4 fade-up project-item" data-category="mineria civil">
+        <div class="project-card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1578496479878-0e4bea1b1e5e?w=700&q=80" alt="Geomembrana"/>
+            <div class="overlay"></div>
+            <span class="category-tag">Minería / Civil</span>
+            <span class="year-tag">2019–2024</span>
+          </div>
+          <div class="card-body-inner">
+            <h5>Tendido de geomembrana y obras de contención</h5>
+            <p>Tendido y anclaje de geomembrana para pilas de lixiviación y pozos de residuos. Montaje de New Jersey y estructuras de contención para proyectos mineros.</p>
+            <div class="meta">
+              <span><i class="bi bi-geo-alt-fill"></i> Veladero / Jachal</span>
+              <span><i class="bi bi-shield-fill"></i> Minería</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+<!-- ──────────────────── TIMELINE ──────────────────── -->
+<section style="padding: 70px 0; background: var(--gris-claro); border-top: 1px solid rgba(0,0,0,0.07);">
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-lg-5 fade-up">
+        <p class="section-subtitle"><span class="section-tag"></span>Historia</p>
+        <h2 class="section-title mb-3">Nuestra <span>trayectoria</span></h2>
+        <p style="color:var(--negro);line-height:1.8;font-size:.97rem;">Desde nuestra constitución, Tierra Capayán creció de manera constante, sumando proyectos de mayor envergadura y clientes de primer nivel. Cada año fortalecemos nuestra capacidad operativa y la calidad de nuestros servicios.</p>
+      </div>
+      <div class="col-lg-7 fade-up" style="transition-delay:.15s;">
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2016</div>
+            <div class="timeline-title">Fundación de Tierra Capayán</div>
+            <div class="timeline-desc">Inicio de actividades el 7 de enero de 2016. Razón social: ALONSO RIVEROS Eduardo Daniel. Domicilio legal en Rawson 1211, Jáchal, San Juan. Primeros trabajos de construcción civil y servicios generales en la región.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2017</div>
+            <div class="timeline-title">Primeros grandes contratos</div>
+            <div class="timeline-desc">Incorporación de maquinaria pesada propia y constitución del área de movimiento de suelos. Primeras obras para clientes industriales en la provincia de San Juan. Apertura de sede administrativa en Capital.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2018–2019</div>
+            <div class="timeline-title">Expansión y diversificación de servicios</div>
+            <div class="timeline-desc">Incorporación del área metalúrgica y metalmecánica. Primeros trabajos para Barrick Gold / Veladero en instalación de geomembranas y monitoreo de taludes. Apertura de ripiera propia para extracción de áridos.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2020–2021</div>
+            <div class="timeline-title">Consolidación en el sector minero</div>
+            <div class="timeline-desc">Inicio de contratos con Austral Gold, CBB y Linecorp. Instalación de sistemas de monitoreo geotécnico de alta precisión (inclinómetros, piezómetros, estaciones sismográficas). Cumplimiento del Protocolo COVID-19 sin interrupción de obras.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2022–2023</div>
+            <div class="timeline-title">Reconocimiento institucional</div>
+            <div class="timeline-desc">Obras para Municipalidad de Jachal, Gobierno de San Juan (Dpto. de Hidráulica), Banco San Juan y Distrocuyo. Consolidación como proveedor confiable para organismos públicos y empresas privadas de primer nivel.</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2024</div>
+            <div class="timeline-title">Certificación ISO 9001:2015</div>
+            <div class="timeline-desc">Obtención de la certificación ISO 9001:2015 por parte de IRAM/IQNET (Registro AR-QS-15521), acreditando el sistema de gestión de calidad para diseño, construcción de obras civiles y electromecánicas y provisión de personal temporario.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── CLIENTES ──────────────────── -->
+<section class="clients-section" id="clientes">
+  <div class="container">
+    <div class="row mb-5 fade-up">
+      <div class="col-12 text-center">
+        <p class="section-subtitle"><span class="section-tag"></span>Quienes confían en nosotros</p>
+        <h2 class="section-title">Nuestros <span>Clientes</span></h2>
+      </div>
+    </div>
+    <div class="row g-3 fade-up">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>BARRICK<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Barrick Gold</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>VELADERO<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Minera Veladero</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>LINECORP<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Servicios Mineros</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>AUSTRAL GOLD<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Minería</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>CBB<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Construcciones</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>MINEROS S.A.<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Por el bienestar</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>INDUMET<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Industrial</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>AMERICAN ADVISOR<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Consultoría</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>BUSTIN<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Construcciones</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>GOB. SAN JUAN<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Dpto. Hidráulica</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>MUNICIPALIDAD<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">de Jachal</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>DISTROCUYO<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Distribución</small></span>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="client-logo-wrap">
+          <span>BANCO SAN JUAN<br><small style="font-size:.65rem;font-weight:400;letter-spacing:.08em;color:rgba(255,255,255,0.4);">Entidad financiera</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── CERTIFICACIONES ──────────────────── -->
+<section class="cert-section" id="certificaciones">
+  <div class="container">
+
+    <div class="row mb-5 fade-up">
+      <div class="col-lg-7">
+        <p class="section-subtitle"><span class="section-tag"></span>Calidad certificada</p>
+        <h2 class="section-title mb-2">Certificaciones y <span>Normativas</span></h2>
+        <p style="color:var(--negro);font-size:.97rem;line-height:1.75;margin-top:.6rem;">Tierra Capayán desarrolla sus actividades bajo los más altos estándares internacionales de calidad, seguridad e higiene laboral, avalado por certificaciones reconocidas a nivel global.</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- ISO 9001 GRANDE -->
+      <div class="col-lg-7 fade-up">
+        <div class="iso-highlight">
+          <div class="iso-number">9001</div>
+          <div class="iso-sub">ISO · Sistema de gestión de la calidad</div>
+          <h4>Certificación IRAM / IQNET<br>ISO 9001:2015</h4>
+          <p>Tierra Capayán cuenta con la certificación internacional ISO 9001:2015, otorgada por IRAM (Instituto Argentino de Normalización y Certificación) y reconocida globalmente por la red IQNET. Esta certificación avala nuestro sistema de gestión de calidad para el diseño, construcción y mantenimiento de obras civiles y electromecánicas, así como la provisión de personal temporario.</p>
+          <div class="iso-data-grid">
+            <div class="iso-data-item">
+              <div class="label">Número de registro</div>
+              <div class="val red">AR – QS – 15521</div>
+            </div>
+            <div class="iso-data-item">
+              <div class="label">Organismo certificador</div>
+              <div class="val">IRAM / IQNET</div>
+            </div>
+            <div class="iso-data-item">
+              <div class="label">Fecha de emisión</div>
+              <div class="val">12 / 12 / 2024</div>
+            </div>
+            <div class="iso-data-item">
+              <div class="label">Fecha de vencimiento</div>
+              <div class="val">21 / 09 / 2026</div>
+            </div>
+            <div class="iso-data-item" style="grid-column: 1/-1;">
+              <div class="label">Alcance certificado</div>
+              <div class="val" style="font-size:.82rem;font-weight:400;color:var(--negro);">Diseño, construcción de obras civiles y electromecánicas y servicios industriales. Provisión de personal temporario.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Otras certificaciones / normas -->
+      <div class="col-lg-5 fade-up" style="transition-delay:.1s;">
+        <div class="row g-4">
+
+          <div class="col-12">
+            <div class="cert-card">
+              <div class="cert-badge"><i class="bi bi-shield-fill-check"></i></div>
+              <h5>Higiene y Seguridad Laboral</h5>
+              <p>Reglamento Interno de Higiene y Seguridad en el Trabajo conforme a la Ley Nº 19.587 (Ley de Higiene y Seguridad) y Ley Nº 24.557 (Ley de Riesgos del Trabajo) y sus decretos reglamentarios (Dec. 351/79, Dec. 911/96).</p>
+              <div class="cert-detail">
+                <div class="cd-row"><span class="label">Marco legal</span><span class="val">Ley 19.587 / 24.557</span></div>
+                <div class="cd-row"><span class="label">A.R.T.</span><span class="val">Provincia ART</span></div>
+                <div class="cd-row"><span class="label">Estado</span><span class="val" style="color:#4caf50;">Vigente</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="cert-card">
+              <div class="cert-badge"><i class="bi bi-file-earmark-text-fill"></i></div>
+              <h5>Condición Impositiva y Legal</h5>
+              <p>Empresa registrada como Responsable Inscripto ante AFIP. Cumplimiento de la Convención Colectiva de Trabajo correspondiente al sector de la construcción.</p>
+              <div class="cert-detail">
+                <div class="cd-row"><span class="label">C.U.I.T.</span><span class="val">20 – 22673497 – 0</span></div>
+                <div class="cd-row"><span class="label">Condición IVA</span><span class="val">Resp. Inscripto</span></div>
+                <div class="cd-row"><span class="label">Inicio actividades</span><span class="val">07 / 01 / 2016</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Valores / política -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-leaf-fill"></i></div>
+          <h5>Política Ambiental</h5>
+          <p>Gestión eficiente de residuos, control de impactos ambientales y cumplimiento de requisitos legales aplicables. Desarrollo sustentable de todas las actividades productivas.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-up" style="transition-delay:.08s;">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-people-fill"></i></div>
+          <h5>Política de RRHH</h5>
+          <p>Personal completamente registrado, con ART vigente y en cumplimiento del CCT de la construcción. Capacitación permanente en EPP, herramientas y maquinaria pesada.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 fade-up" style="transition-delay:.16s;">
+        <div class="cert-card">
+          <div class="cert-badge"><i class="bi bi-graph-up-arrow"></i></div>
+          <h5>Mejora Continua</h5>
+          <p>Sistema de gestión con foco en la mejora continua de procesos, plan anual de capacitación, reporte de accidentes e incidentes y adhesión a políticas HSE de los comitentes.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── QR / GALERÍA ──────────────────── -->
+<section class="qr-section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="qr-box">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://drive.google.com/drive/folders/1mwsEZvtJrkL1uwo2HE9oeuEM-qKu3qy?usp=sharing&color=970201&bgcolor=1a1a1a" alt="QR Código Tierra Capayán"/>
+        <div>
+          <h4>Galería de obras y proyectos</h4>
+          <p>Escaneá el código QR o hacé clic en el enlace para acceder a nuestra galería actualizada con fotografías y videos de los trabajos realizados, organizados por tipo de servicio y año de ejecución.</p>
+          <a class="qr-link" href="https://drive.google.com/drive/folders/1mwsEZvtJrkL1uwo2HE9oeuEM-qKu3qy?usp=sharing" target="_blank">
+            <i class="bi bi-folder2-open"></i>
+            Ver galería en Google Drive
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────── FOOTER ──────────────────── -->
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <img src="https://i.ibb.co/r2R3Xnbt/Imagen1.png" id="TIERRA-CAPAYAN-SIN-FONDO-PIE" alt="Tierra Capayán" class="mb-3"/>
+        <p>Empresa de servicios generales especializada en construcción. Comprometida con el desarrollo de Jachal y la provincia de San Juan desde sus cimientos.</p>
+        <div class="footer-social mt-3">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <h6 class="text-white mb-3" style="font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;">Navegación</h6>
+        <div class="footer-links">
+          <a href="tierra_capayan1.html">Inicio</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#clientes">Clientes</a>
+          <a href="#certificaciones">Certificaciones</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="presupuesto.html">Pedir Presupuesto</a>
+          
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="text-white mb-3" style="font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;">Servicios</h6>
+        <div class="footer-links">
+          <a href="#">Construcción Civil</a>
+          <a href="#">Metalúrgica</a>
+          <a href="#">Mov. de Suelos</a>
+          <a href="#">Serv. Industriales</a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="text-white mb-3" style="font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;">Contacto</h6>
+        <p class="mb-1"><i class="bi bi-geo-alt text-danger me-2"></i>Rawson 1211 – Jachal, San Juan</p>
+        <p class="mb-1"><i class="bi bi-telephone text-danger me-2"></i>+54 264 672-7983</p>
+        <p class="mb-1"><i class="bi bi-telephone text-danger me-2"></i>+54 264 488-0143</p>
+        <p class="mb-0"><i class="bi bi-envelope text-danger me-2"></i>info@tierracapayan.com.ar</p>
+      </div>
+    </div>
+    <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <span>© 2025 Tierra Capayán · Todos los derechos reservados.</span>
+      <span>Jachal · San Juan · Argentina</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// ── Scroll animations ──
+const fadeEls = document.querySelectorAll('.fade-up');
+fadeEls.forEach(el => el.classList.add('animate'));
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+fadeEls.forEach(el => observer.observe(el));
+
+// ── Filter tabs ──
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectItems = document.querySelectorAll('.project-item');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+    projectItems.forEach(item => {
+      const cats = item.dataset.category;
+      if (filter === 'all' || cats.includes(filter)) {
+        item.style.display = '';
+        // re-trigger animation
+        item.classList.remove('visible');
+        setTimeout(() => item.classList.add('visible'), 50);
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Active nav on scroll
+window.addEventListener('s
