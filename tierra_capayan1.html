@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tierra Capayán – Servicios Generales de Construcción</title>
 
-  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
   <style>
@@ -33,7 +30,6 @@
 
     h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-    /* ── NAVBAR ── */
     .navbar {
       background: rgba(10,10,10,0.95);
       backdrop-filter: blur(8px);
@@ -66,7 +62,6 @@
         #TIERRA-CAPAYAN-SIN-FONDO{
       height: 80px}
 
-    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       background:
@@ -146,7 +141,6 @@
     }
     .btn-outline-tc:hover { border-color: #fff; color: #fff; }
 
-    /* ── STATS BAR ── */
     .stats-bar {
       background: var(--gris);
       padding: 2rem 0;
@@ -170,7 +164,6 @@
       text-transform: uppercase;
     }
 
-    /* ── SECTION TITLES ── */
     .section-tag {
       display: inline-block;
       width: 36px; height: 3px;
@@ -194,7 +187,6 @@
     }
     .section-title span { color: var(--rojo); }
 
-    /* ── NOSOTROS ── */
     .about-section { padding: 100px 0; background: var(--blanco); }
     .about-img-wrap {
       position: relative;
@@ -234,7 +226,6 @@
     }
     .about-list li i { color: var(--rojo); margin-right: 10px; }
 
-    /* ── SERVICIOS ── */
     .services-section { padding: 100px 0; background: var(--gris-claro); }
     .service-card {
       background: var(--blanco);
@@ -283,7 +274,6 @@
     .service-card .card-footer a i { transition: transform 0.2s; }
     .service-card .card-footer a:hover i { transform: translateX(4px); }
 
-    /* ── POR QUÉ ELEGIRNOS ── */
     .why-section {
       padding: 100px 0;
       background:
@@ -307,7 +297,6 @@
     .why-card h5 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.6rem; }
     .why-card p { color: rgba(255,255,255,0.7); font-size: 0.94rem; line-height: 1.7; margin: 0; }
 
-    /* ── PROYECTOS ── */
     .projects-section { padding: 100px 0; background: var(--blanco); }
     .project-card {
       position: relative;
@@ -350,7 +339,6 @@
       margin: 0;
     }
 
-    /* ── ZONA ── */
     .zone-section { padding: 100px 0; background: var(--gris-claro); }
     .zone-map {
       background: #ddd;
@@ -373,7 +361,6 @@
       margin-top: 0.8rem;
     }
 
-    /* ── CONTACTO ── */
     .contact-section { padding: 100px 0; background: var(--negro); }
     .contact-section .section-title { color: #fff; }
     .contact-info-item {
@@ -410,7 +397,6 @@
     }
     .contact-form label { color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
 
-    /* ── FOOTER ── */
     footer {
       background: #0d0d0d;
       border-top: 3px solid var(--rojo);
@@ -455,7 +441,6 @@
     #TIERRA-CAPAYAN-SIN-FONDO-PIE{
       height: 60px}
 
-    /* ── SCROLL ANIMATIONS ── */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
@@ -463,7 +448,6 @@
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE TWEAKS ── */
     @media (max-width: 992px) {
       .about-text { padding-left: 0; margin-top: 4rem; }
       .about-badge { right: 8px; }
@@ -476,7 +460,6 @@
 </head>
 <body>
 
-<!-- ──────────────────── NAVBAR ──────────────────── -->
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <img src="https://i.ibb.co/r2R3Xnbt/Imagen1.png" id="TIERRA-CAPAYAN-SIN-FONDO" border="0">
@@ -493,7 +476,6 @@
   </div>
 </nav>
 
-<!-- ──────────────────── HERO ──────────────────── -->
 <section class="hero" id="inicio">
   <div class="container position-relative" style="z-index:2;">
     <div class="row">
@@ -506,7 +488,6 @@
   </div>
 </section>
 
-<!-- ──────────────────── STATS BAR ──────────────────── -->
 <div class="stats-bar" id="stats">
   <div class="container">
     <div class="row gy-3">
@@ -530,7 +511,6 @@
   </div>
 </div>
 
-<!-- ──────────────────── NOSOTROS ──────────────────── -->
 <section class="about-section" id="nosotros">
   <div class="container">
     <div class="row align-items-center gy-5">
@@ -559,7 +539,6 @@
   </div>
 </section>
 
-<!-- ──────────────────── SERVICIOS ──────────────────── -->
 <section class="services-section" id="servicios">
   <div class="container">
     <div class="row mb-5 fade-up">
@@ -583,7 +562,7 @@
           <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
         </div>
       </div>
-      <!-- Servicio 2 -->
+
       <div class="col-md-6 col-lg-4 fade-up">
         <div class="card service-card">
           <div class="card-body">
@@ -594,7 +573,7 @@
           <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
         </div>
       </div>
-      <!-- Servicio 3 -->
+
       <div class="col-md-6 col-lg-4 fade-up">
         <div class="card service-card">
           <div class="card-body">
@@ -605,7 +584,7 @@
           <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
         </div>
       </div>
-      <!-- Servicio 4 -->
+
       <div class="col-md-6 col-lg-4 fade-up">
         <div class="card service-card">
           <div class="card-body">
@@ -616,7 +595,7 @@
           <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
         </div>
       </div>
-      <!-- Servicio 5 -->
+
       <div class="col-md-6 col-lg-4 fade-up">
         <div class="card service-card">
           <div class="card-body">
@@ -627,7 +606,7 @@
           <div class="card-footer"><a href="#contacto">Consultar <i class="bi bi-arrow-right ms-1"></i></a></div>
         </div>
       </div>
-      <!-- Servicio 6 -->
+
       <div class="col-md-6 col-lg-4 fade-up">
         <div class="card service-card">
           <div class="card-body">
@@ -641,8 +620,6 @@
     </div>
   </div>
 </section>
-
-<!-- ──────────────────── POR QUÉ ELEGIRNOS ──────────────────── -->
 <section class="why-section">
   <div class="container">
     <div class="row mb-5 fade-up">
@@ -684,7 +661,6 @@
   </div>
 </section>
 
-<!-- ──────────────────── ZONA DE COBERTURA ──────────────────── -->
 <section class="zone-section" id="zona">
   <div class="container">
     <div class="row align-items-center gy-5">
@@ -708,7 +684,6 @@
   </div>
 </section>
 
-<!-- ──────────────────── FOOTER ──────────────────── -->
 <footer>
   <div class="container">
     <div class="row gy-4">
@@ -754,10 +729,8 @@
   </div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Scroll animation -->
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -767,14 +740,13 @@
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Smooth scroll nav
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // close mobile menu
+
         const menu = document.getElementById('navMenu');
         if (menu.classList.contains('show')) {
           bootstrap.Collapse.getInstance(menu)?.hide();
@@ -783,7 +755,6 @@
     });
   });
 
-  // Active nav on scroll
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
     let current = '';
